@@ -19,7 +19,7 @@ class Piggy {
 
   jump() {
     if (this.y == height - this.r) {
-      this.vy = -25;
+      this.vy = -23;
 
     }
   }

@@ -19,12 +19,11 @@ function keyPressed() {
 
 function draw() {
 
-  if(random(1) < 0.005) { //number of the cart
+  if(random(1) < 0.012) { //number of the cart
     carts.push(new Cart());
   }
 
-
-  background(220);
+  background(220)
 
   for(let c of carts) {
     c.move();
