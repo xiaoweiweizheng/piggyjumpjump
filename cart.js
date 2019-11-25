@@ -1,12 +1,12 @@
 class Cart {
   constructor() {
-    this.r = 40;
+    this.r = 35;
     this.x = width;
     this.y = height - this.r;
   }
 
   move() {
-    this.x -= 15; //speed of the cart
+    this.x -= 18; //speed of the cart
   }
 
   show() {
