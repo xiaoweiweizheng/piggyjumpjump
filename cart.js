@@ -6,7 +6,7 @@ class Cart {
   }
 
   move() {
-    this.x -= 12; //speed of the cart
+    this.x -= 15; //speed of the cart
   }
 
   show() {
