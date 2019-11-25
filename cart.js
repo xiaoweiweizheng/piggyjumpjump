@@ -6,10 +6,10 @@ class Cart {
   }
 
   move() {
-    this.x -= 7; //speed of the cart
+    this.x -= 8; //speed of the cart
   }
 
   show() {
     image(cImg, this.x, this.y, this.r, this.r);
   }
-}7
+}8
