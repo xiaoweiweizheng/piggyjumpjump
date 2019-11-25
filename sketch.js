@@ -19,7 +19,7 @@ function keyPressed() {
 
 function draw() {
 
-  if(random(1) < 0.01) { //number of the cart
+  if(random(1) < 0.015) { //number of the cart
     carts.push(new Cart());
   }
 
