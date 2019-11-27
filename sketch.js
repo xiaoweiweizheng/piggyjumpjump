@@ -1,5 +1,10 @@
+'use strict';
+let w = 800;
+let h = 400;
+let state = 'title';
 let piggy;
 let carts = [];
+let pImg, cImg;
 
 function preload(){
   pImg = loadImage('asset/piggy.png');
@@ -7,23 +12,76 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(800, 400);
-  piggy = new Piggy;
+  createCanvas(w, h);
+}
+
+
+function draw() {
+
+  switch(state){
+    case 'title':
+      title();
+      break;
+    case 'levelOne':
+      levelOne();
+      break;
+    case 'gameOver':
+      gameOver();
+      break;
+    case 'youWin':
+      youWin();
+      break;
+  }
+
 }
 
 function keyPressed() {
-  if(key == ' '){
+
+  switch(state){
+    case 'title':
+      titleKeypressed();
+      break;
+    case 'levelOne':
+      levelOneKeypressed();
+      break;
+    case 'gameOver':
+      gameOver();
+      break;
+    case 'youWin':
+      youWin();
+      break;
+  }
+
+}
+
+function title() {
+  background(200);
+  textFont();
+  textAlign(CENTER);
+  textSize(60);
+  text('piggyJumpJump', w/2, h/2);
+}
+
+function titleKeypressed(){
+  if (key == ' ') {
+      state = 'levelOne';
+      piggy = new Piggy();
+    }
+}
+
+function levelOneKeypressed() {
+  if (key == ' ') {
     piggy.jump();
   }
 }
 
-function draw() {
+function levelOne() {
+
+  background(255);
 
   if(random(1) < 0.015) { //number of the cart
     carts.push(new Cart());
   }
-
-  background(220)
 
   for(let c of carts) {
     c.move();
@@ -31,6 +89,7 @@ function draw() {
 
     if(piggy.hits(c)) {
       console.log('game over');
+      gameOver();
       noLoop();
     }
   }
@@ -38,5 +97,15 @@ function draw() {
   piggy.show();
   piggy.move();
 
+}
+
+function gameOver() {
+  background(0);
+  fill(255);
+  textSize(60);
+  text('gameOver', w/2, h/2)
+}
+
+function youWin() {
 
 }
