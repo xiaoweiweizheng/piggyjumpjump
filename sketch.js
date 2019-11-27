@@ -6,7 +6,7 @@ let piggy;
 let carts = [];
 let pImg, cImg;
 
-function preload(){
+function preload() {
   pImg = loadImage('asset/piggy.png');
   cImg = loadImage('asset/cart.png');
 }
@@ -18,7 +18,7 @@ function setup() {
 
 function draw() {
 
-  switch(state){
+  switch (state) {
     case 'title':
       title();
       break;
@@ -37,7 +37,7 @@ function draw() {
 
 function keyPressed() {
 
-  switch(state){
+  switch (state) {
     case 'title':
       titleKeypressed();
       break;
@@ -45,7 +45,7 @@ function keyPressed() {
       levelOneKeypressed();
       break;
     case 'gameOver':
-      gameOverKeypressed();
+      titleKeypressed();
       break;
     case 'youWin':
       youWin();
@@ -59,14 +59,14 @@ function title() {
   textFont();
   textAlign(CENTER);
   textSize(60);
-  text('piggyJumpJump', w/2, h/2);
+  text('piggyJumpJump', w / 2, h / 2);
 }
 
-function titleKeypressed(){
+function titleKeypressed() {
   if (key == ' ') {
-      state = 'levelOne';
-      piggy = new Piggy();
-    }
+    state = 'levelOne';
+    piggy = new Piggy();
+  }
 }
 
 function levelOneKeypressed() {
@@ -79,15 +79,15 @@ function levelOne() {
 
   background(255);
 
-  if(random(1) < 0.015) { //number of the cart
+  if (random(1) < 0.015) { //number of the cart
     carts.push(new Cart());
   }
 
-  for(let c of carts) {
+  for (let c of carts) {
     c.move();
     c.show();
 
-    if(piggy.hits(c)) {
+    if (piggy.hits(c)) {
       console.log('game over');
       gameOver();
       noLoop();
@@ -103,15 +103,15 @@ function gameOver() {
   background(0);
   fill(255);
   textSize(60);
-  text('gameOver', w/2, h/2)
+  text('gameOver', w / 2, h / 2)
 }
 
-function gameOverKeypressed() {
-  if (key == ' ') {
-      state = 'levelOne';
-      piggy = new Piggy();
-    }
-}
+// function gameOverKeypressed() {
+//   if (key == ' ') {
+//     state = 'levelOne';
+//     piggy = new Piggy();
+//   }
+// }
 
 function youWin() {
 
