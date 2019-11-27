@@ -45,7 +45,7 @@ function keyPressed() {
       levelOneKeypressed();
       break;
     case 'gameOver':
-      gameOver();
+      gameOverKeypressed();
       break;
     case 'youWin':
       youWin();
@@ -104,6 +104,13 @@ function gameOver() {
   fill(255);
   textSize(60);
   text('gameOver', w/2, h/2)
+}
+
+function gameOverKeypressed() {
+  if (key == ' ') {
+      state = 'levelOne';
+      piggy = new Piggy();
+    }
 }
 
 function youWin() {
