@@ -109,9 +109,10 @@ function gameOver() {
 function gameOverKeyPressed() {
 
   if (key == ' ') {
-    background(150);
+    // background(150);
     console.log('back to levelOne');
     // state = 'levelOne';
+    clear();
     levelOne();
   }
 

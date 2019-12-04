@@ -13,7 +13,7 @@ class Cart {
     image(cImg, this.x, this.y, this.r, this.r);
   }
 
-  clear() {
-    image(cImg, 0, 0, 0, 0);
-  }
+  // clear(){
+  //
+  // }
 }
