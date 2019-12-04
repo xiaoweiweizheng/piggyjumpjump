@@ -70,6 +70,7 @@ function titleKeyPressed() {
 
 function levelOneKeyPressed() {
   if (key == ' ') {
+    console.log('jump');
     piggy.jump();
   }
 }
@@ -110,6 +111,7 @@ function gameOverKeyPressed() {
   if (key == ' ') {
     background(150);
     console.log('back to levelOne');
+    // state = 'levelOne';
     levelOne();
   }
 

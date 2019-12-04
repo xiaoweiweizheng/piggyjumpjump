@@ -12,4 +12,8 @@ class Cart {
   show() {
     image(cImg, this.x, this.y, this.r, this.r);
   }
-}8
+
+  clear() {
+    image(cImg, 0, 0, 0, 0);
+  }
+}
