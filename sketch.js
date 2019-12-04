@@ -112,7 +112,7 @@ function gameOverKeyPressed() {
     // background(150);
     console.log('back to levelOne');
     // state = 'levelOne';
-    clear();
+    c.clear();
     levelOne();
   }
 
