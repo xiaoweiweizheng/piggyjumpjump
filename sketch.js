@@ -16,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-
+  console.log('state is : ' + state);
   switch (state) {
     case 'title':
       title();
@@ -70,7 +70,6 @@ function titleKeyPressed() {
 
 function levelOneKeyPressed() {
   if (key == ' ') {
-    console.log('jump');
     piggy.jump();
   }
 }
@@ -82,17 +81,21 @@ function levelOne() {
   if (random(1) < 0.015) { //number of the cart
     carts.push(new Cart());
   }
-
+  let check = false;
   for (let c of carts) {
+    if (piggy.hits(c)) {
+    	carts = [];
+      console.log('game over');
+      check = true;
+      break;
+    }
     c.move();
     c.show();
-
-    if (piggy.hits(c)) {
-      console.log('game over');
-      gameOver();
-      noLoop();
-    }
+    
   }
+  if(check == true){
+      state = 'gameOver';
+    }
 
   piggy.show();
   piggy.move();
@@ -103,17 +106,18 @@ function gameOver() {
   background(0);
   fill(255);
   textSize(60);
-  text('gameOver', w / 2, h / 2)
+  text('gameOver', w / 2, h / 2);
+  
+  console.log(state + 'game over');
+
 }
 
 function gameOverKeyPressed() {
 
   if (key == ' ') {
-    // background(150);
+    background(150);
     console.log('back to levelOne');
-    // state = 'levelOne';
-    c.clear();
-    levelOne();
+    state = 'levelOne';
   }
 
 }
