@@ -15,7 +15,6 @@ function setup() {
   createCanvas(w, h);
 }
 
-
 function draw() {
 
   switch (state) {
@@ -39,13 +38,13 @@ function keyPressed() {
 
   switch (state) {
     case 'title':
-      titleKeypressed();
+      titleKeyPressed();
       break;
     case 'levelOne':
-      levelOneKeypressed();
+      levelOneKeyPressed();
       break;
     case 'gameOver':
-      titleKeypressed();
+      gameOverKeyPressed();
       break;
     case 'youWin':
       youWin();
@@ -62,14 +61,14 @@ function title() {
   text('piggyJumpJump', w / 2, h / 2);
 }
 
-function titleKeypressed() {
+function titleKeyPressed() {
   if (key == ' ') {
     state = 'levelOne';
     piggy = new Piggy();
   }
 }
 
-function levelOneKeypressed() {
+function levelOneKeyPressed() {
   if (key == ' ') {
     piggy.jump();
   }
@@ -106,12 +105,14 @@ function gameOver() {
   text('gameOver', w / 2, h / 2)
 }
 
-// function gameOverKeypressed() {
-//   if (key == ' ') {
-//     state = 'levelOne';
-//     piggy = new Piggy();
-//   }
-// }
+function gameOverKeyPressed() {
+  console.log('back to game');
+
+  if (key === ' ') {
+    state = 'levelOne';
+  }
+
+}
 
 function youWin() {
 

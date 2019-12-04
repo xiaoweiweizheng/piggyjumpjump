@@ -25,7 +25,11 @@ class Piggy {
   }
 
   hits(cart) {
-    return collideRectRect(this.x, this.y, this.r, this.r, cart.x, cart.y, cart.r, cart.r);
+    // return collideRectRect(this.x, this.y, this.r, this.r, cart.x, cart.y, cart.r, cart.r);
+    if(dist(this.x, this.y, cart.x, cart.y) < this.r){
+      return true;
+    }
+
   }
 
 }
