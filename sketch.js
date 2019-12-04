@@ -106,10 +106,11 @@ function gameOver() {
 }
 
 function gameOverKeyPressed() {
-  console.log('back to game');
 
-  if (keyCode == BACKSPACE) {
-    state = 'title';
+  if (key == ' ') {
+    background(150);
+    console.log('back to levelOne');
+    levelOne();
   }
 
 }
