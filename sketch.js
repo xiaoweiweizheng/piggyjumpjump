@@ -1,4 +1,5 @@
 'use strict';
+let cnv;
 let w = 800;
 let h = 400;
 let state = 'title';
@@ -12,7 +13,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(w, h);
+  cnv = createCanvas(w, h);
+  cnv.parent('#p5Canvas');
 }
 
 function draw() {
@@ -55,7 +57,7 @@ function keyPressed() {
 
 function title() {
   background(200);
-  textFont();
+  textFont('Courier New');
   textAlign(CENTER);
   textSize(60);
   text('piggyJumpJump', w / 2, h / 2);

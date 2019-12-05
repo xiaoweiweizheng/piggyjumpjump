@@ -1,24 +1,24 @@
-html, body {
-font-family: 'Overpass', sans-serif;
 
-  margin: auto;
-
-  color: #7E8989 ;
-
-}
-canvas {
+.canvas {
   display: block;
-  margin: 100px auto;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  margin-left: 200px;
+  position: relative;
 }
 
-div{
-padding: 15px;
-width: 750px;
-text-align: justify;
-position: relative;
-float:none;
-top: 50%;
-left: 23%;
+body{
+  font-family: Courier New;
+  color: #7E8989;
+}
 
 
+
+h2{
+  margin: 15px 200px;
+}
+
+p {
+  margin: auto 200px;
+  position: relative;
 }
