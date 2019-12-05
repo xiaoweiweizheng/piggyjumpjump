@@ -81,7 +81,9 @@ function levelOne() {
   if (random(1) < 0.015) { //number of the cart
     carts.push(new Cart());
   }
+
   let check = false;
+
   for (let c of carts) {
     if (piggy.hits(c)) {
     	carts = [];
@@ -91,7 +93,7 @@ function levelOne() {
     }
     c.move();
     c.show();
-    
+
   }
   if(check == true){
       state = 'gameOver';
@@ -107,7 +109,7 @@ function gameOver() {
   fill(255);
   textSize(60);
   text('gameOver', w / 2, h / 2);
-  
+
   console.log(state + 'game over');
 
 }
