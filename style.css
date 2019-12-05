@@ -1,8 +1,24 @@
 html, body {
-  margin: 0;
-  padding: 0;
+font-family: 'Overpass', sans-serif;
+
+  margin: auto;
+
+    color: #7E8989 ;
+
 }
 canvas {
   display: block;
   margin: 100px auto;
+}
+
+div{
+padding: 15px;
+width: 750px;
+text-align: justify;
+position: relative;
+float:none;
+top: 50%;
+left: 23%;
+
+
 }
