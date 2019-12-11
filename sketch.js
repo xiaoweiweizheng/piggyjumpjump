@@ -117,7 +117,7 @@ for (var i = bottles.length - 1; i >= 0; i--) {
     c.show();
   }
 
-  if(check == true){
+  if(checkGameOver == true){
       state = 'gameOver';
   }
 
