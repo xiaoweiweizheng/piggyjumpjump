@@ -7,17 +7,23 @@ let piggy;
 let carts = [];
 let bottles = [];
 let scores = 0;
-let pImg, cImg, bImg;
+let pImg, cImg, bImg, hImg;
+let hX1 = 0;
+let hX2;
+let houseSpeed = 5;
 
 function preload() {
   pImg = loadImage('asset/piggy.png');
   cImg = loadImage('asset/cart.png');
   bImg = loadImage('asset/bottle.png')
+  hImg = loadImage('asset/house.png');
 }
 
 function setup() {
   cnv = createCanvas(w, h);
   cnv.parent('#p5Canvas');
+  hX2 = w;
+
 }
 
 function draw() {
@@ -64,11 +70,14 @@ function keyPressed() {
 }
 
 function title() {
-  background(200);
+  background(255);
+  houseBG();
   textFont('Courier New');
   textAlign(CENTER);
   textSize(60);
-  text('Piggy Jump Jump', w / 2, h / 2);
+  text('Piggy Jump Jump', w / 2, h / 1.2 + random(15));
+  textSize(20);
+  text('press space key to star', w/2, h/1.05);
 }
 
 function titleKeyPressed() {
@@ -86,6 +95,7 @@ function levelOneKeyPressed() {
 
 function levelOne() {
   background(255);
+  houseBG();
 
   if (random(1) < 0.015) { //number of the cart
     carts.push(new Cart());
@@ -108,7 +118,7 @@ function levelOne() {
     }
   }
 
-  if (scores >= 1) {
+  if (scores >= 5) {
     state = 'levelTwo';
   }
 
@@ -174,6 +184,22 @@ function levelTwo() {
 function levelTwoStatement() {
   background(255);
   fill(0);
-  textSize(10);
-  text('Unfortunately, this level has not been fully developed, please be patient and wait for update. Thanks your support', width / 2, height / 2);
+  textSize(12);
+  text('Unfortunately, this level has not been fully developed.Please be patient and wait for update. Thanks your support', width / 2, height / 2);
+}
+
+function houseBG() {
+  image(hImg, hX1, 0, w, h);
+  image(hImg, hX2, 0, w, h);
+
+  hX1 -= houseSpeed;
+  hX2 -= houseSpeed;
+
+  if (hX1 < -w){
+    hX1 = w;
+  };
+  if (hX2 < -w){
+    hX2 = w;
+  }
+
 }
