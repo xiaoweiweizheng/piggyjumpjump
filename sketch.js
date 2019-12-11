@@ -101,7 +101,7 @@ for (var i = bottles.length - 1; i >= 0; i--) {
   if (dist(piggy.x, piggy.y, bottles[i].x, bottles[i].y) <= (piggy.r + bottles[i].r)/2){
     scores++;
     console.log(scores);
-    bottles.splice(i, 0);
+    bottles.splice(i, 1);
   }
 }
 
