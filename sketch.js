@@ -110,7 +110,7 @@ for (let c of carts) {
     carts = [];
     console.log('game over');
     check = true;
-    break;
+    // break;
   }
   c.move();
   c.show();
@@ -129,7 +129,6 @@ if(check == true){
 
 }
 
-
 function gameOver() {
   background(0);
   fill(255);
@@ -138,6 +137,7 @@ function gameOver() {
   textSize(20);
   fill(220, 50, 50);
   text('pressSpaceToRestart', w / 2, h / 2 + 50);
+  scores = 0;
   console.log(state + 'game over');
 
 }
