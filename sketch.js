@@ -80,8 +80,6 @@ function levelOneKeyPressed() {
 }
 
 function levelOne() {
-  let checkGameOver = false;
-
   background(255);
 
   if (random(1) < 0.015) { //number of the cart
@@ -105,21 +103,23 @@ for (var i = bottles.length - 1; i >= 0; i--) {
   }
 }
 
-  for (let c of carts) {
-    if (piggy.hits(c)) {
-    	// carts = [];
-      console.log('game over');
-      checkGameOver = true;
-      break;
-    }
+let check = false;
 
-    c.move();
-    c.show();
+for (let c of carts) {
+  if (piggy.hits(c)) {
+    carts = [];
+    console.log('game over');
+    check = true;
+    break;
   }
+  c.move();
+  c.show();
 
-  if(checkGameOver == true){
-      state = 'gameOver';
-  }
+}
+
+if(check == true){
+    state = 'gameOver';
+}
 
   piggy.show();
   piggy.move();
