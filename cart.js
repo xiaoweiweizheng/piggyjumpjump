@@ -14,6 +14,8 @@ class Cart {
   }
 
   outOfScreen(){
-    return(this.x < -this.width ? true : false);
+    if (this.x < - width ){
+      return true;
+    }
   }
 }

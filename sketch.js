@@ -91,17 +91,20 @@ function levelOne() {
   let check = false;
 
   for (let c of carts) {
-    if(c.outOfScreen){
-      // c.splice(i, 1);
-      piggy.score += 10;
-    } else if (piggy.hits(c)) {
-    	carts = [];
+    c.move();
+    c.show();
+
+    if (piggy.hits(c)) {
+      carts = [];
       console.log('game over');
       check = true;
       break;
     }
-    c.move();
-    c.show();
+
+    if(c.outOfScreen){
+      // carts.splice(c, 1);
+      piggy.score += 10;
+    }
 
   }
 
