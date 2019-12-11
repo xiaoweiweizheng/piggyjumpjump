@@ -155,13 +155,13 @@ function levelOne() {
 }
 
 function gameOver() {
-  background(0);
-  fill(255);
+  background(255);
+  fill(0);
   textSize(60);
-  text('gameOver', w / 2, h / 2);
+  text('Game Over', w / 2, h / 2);
   textSize(20);
-  fill(220, 50, 50);
-  text('pressSpaceToRestart', w / 2, h / 2 + 50);
+  fill(239, 109, 129);
+  text('but you can press space to restart', w / 2, h / 2 + 50);
   scores = 0;
   console.log(state + 'game over');
 
