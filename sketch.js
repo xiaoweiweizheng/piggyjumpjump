@@ -34,6 +34,12 @@ function draw() {
       break;
     case 'levelTwo':
       levelTwo();
+      cnv.mouseClicked(function() {
+        state = 'levelTwoStatement';
+      });
+      break;
+    case 'levelTwoStatement':
+      levelTwoStatement();
       break;
   }
 
@@ -51,9 +57,8 @@ function keyPressed() {
     case 'gameOver':
       gameOverKeyPressed();
       break;
-    case 'levelTwo':
-      // levelTwoMouseClicked();
-      break;
+      // case 'levelTwo':
+      //   break;
   }
 
 }
@@ -63,7 +68,7 @@ function title() {
   textFont('Courier New');
   textAlign(CENTER);
   textSize(60);
-  text('piggyJumpJump', w / 2, h / 2);
+  text('Piggy Jump Jump', w / 2, h / 2);
 }
 
 function titleKeyPressed() {
@@ -90,48 +95,48 @@ function levelOne() {
     bottles.push(new Bottle());
   }
 
-for (var i = 0; i < bottles.length; i++) {
-  bottles[i].move();
-  bottles[i].show();
-}
-
-for (var i = bottles.length - 1; i >= 0; i--) {
-  if (dist(piggy.x, piggy.y, bottles[i].x, bottles[i].y) <= (piggy.r + bottles[i].r)/2){
-    scores++;
-    console.log(scores);
-    bottles.splice(i, 1);
+  for (var i = 0; i < bottles.length; i++) {
+    bottles[i].move();
+    bottles[i].show();
   }
-}
 
-if (scores >= 1) {
-  state = 'levelTwo';
-}
-
-
-let check = false;
-
-for (let c of carts) {
-  if (piggy.hits(c)) {
-    carts = [];
-    console.log('game over');
-    check = true;
-    // break;
+  for (var i = bottles.length - 1; i >= 0; i--) {
+    if (dist(piggy.x, piggy.y, bottles[i].x, bottles[i].y) <= (piggy.r + bottles[i].r) / 2) {
+      scores++;
+      console.log(scores);
+      bottles.splice(i, 1);
+    }
   }
-  c.move();
-  c.show();
 
-}
+  if (scores >= 1) {
+    state = 'levelTwo';
+  }
 
-if(check == true){
+
+  let check = false;
+
+  for (let c of carts) {
+    if (piggy.hits(c)) {
+      carts = [];
+      console.log('game over');
+      check = true;
+      // break;
+    }
+    c.move();
+    c.show();
+
+  }
+
+  if (check == true) {
     state = 'gameOver';
-}
+  }
 
   piggy.show();
   piggy.move();
 
   fill(0);
   textSize(15);
-  text('scores: ' + scores, width/1.2, height/10);
+  text('scores: ' + scores, width / 1.2, height / 10);
 
 }
 
@@ -161,7 +166,14 @@ function gameOverKeyPressed() {
 function levelTwo() {
   background(255);
   fill(0);
-  textSize(20);
-  text('Congratulation! Now, you can enter level two.', width/2, height/2);
-  text('Please click mouse to choose your gender & characters', width/2, height/2 + 20);
+  textSize(15);
+  text('Congratulation! Now, you can enter level two.', width / 2, height / 2);
+  text('Please click mouse to choose your gender & characters', width / 2, height / 2 + 20);
+}
+
+function levelTwoStatement() {
+  background(255);
+  fill(0);
+  textSize(10);
+  text('Unfortunately, this level has not been fully developed, please be patient and wait for update. Thanks your support', width / 2, height / 2);
 }
