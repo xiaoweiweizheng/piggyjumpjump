@@ -23,10 +23,10 @@ function setup() {
   cnv = createCanvas(w, h);
   cnv.parent('#p5Canvas');
   hX2 = w;
-
 }
 
 function draw() {
+
   console.log('state is : ' + state);
   switch (state) {
     case 'title':
@@ -49,6 +49,8 @@ function draw() {
       break;
   }
 
+  stroke(240);
+  line(0, h - 1, w, h -1);
 }
 
 function keyPressed() {
