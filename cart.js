@@ -12,4 +12,8 @@ class Cart {
   show() {
     image(cImg, this.x, this.y, this.r, this.r);
   }
+
+  outOfScreen(){
+    return(this.x < -this.width ? true : false);
+  }
 }

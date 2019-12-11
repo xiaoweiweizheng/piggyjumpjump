@@ -5,10 +5,6 @@ let h = 400;
 let state = 'title';
 let piggy;
 let carts = [];
-let jumpBeginnTime = performance.now();
-
-let score = 0;
-
 let pImg, cImg;
 
 function preload() {
@@ -91,10 +87,7 @@ function levelOne() {
   let check = false;
 
   for (let c of carts) {
-    if(c.outOfScreen){
-      // c.splice(i, 1);
-      piggy.score += 10;
-    } else if (piggy.hits(c)) {
+    if (piggy.hits(c)) {
     	carts = [];
       console.log('game over');
       check = true;
@@ -104,7 +97,6 @@ function levelOne() {
     c.show();
 
   }
-
   if(check == true){
       state = 'gameOver';
     }
