@@ -32,8 +32,8 @@ function draw() {
     case 'gameOver':
       gameOver();
       break;
-    case 'youWin':
-      youWin();
+    case 'levelTwo':
+      levelTwo();
       break;
   }
 
@@ -51,8 +51,8 @@ function keyPressed() {
     case 'gameOver':
       gameOverKeyPressed();
       break;
-    case 'youWin':
-      youWin();
+    case 'levelTwo':
+      // levelTwoMouseClicked();
       break;
   }
 
@@ -103,6 +103,11 @@ for (var i = bottles.length - 1; i >= 0; i--) {
   }
 }
 
+if (scores >= 1) {
+  state = 'levelTwo';
+}
+
+
 let check = false;
 
 for (let c of carts) {
@@ -124,6 +129,7 @@ if(check == true){
   piggy.show();
   piggy.move();
 
+  fill(0);
   textSize(15);
   text('scores: ' + scores, width/1.2, height/10);
 
@@ -152,6 +158,10 @@ function gameOverKeyPressed() {
 
 }
 
-function youWin() {
-
+function levelTwo() {
+  background(255);
+  fill(0);
+  textSize(20);
+  text('Congratulation! Now, you can enter level two.', width/2, height/2);
+  text('Please click mouse to choose your gender & characters', width/2, height/2 + 20);
 }
