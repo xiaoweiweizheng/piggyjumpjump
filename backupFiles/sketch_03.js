@@ -92,27 +92,24 @@ function levelOne() {
     carts.push(new Cart());
   }
 
-    for (let i = 0; i <= carts.length; i++){
-      carts[i].move();
-      carts[i].show();
-
-      if (piggy.hits(carts[i])) {
-        // carts = [];
-        console.log('game over');
-        checkGameOver = true;
-        break;
-      }
-
-      if(checkGameOver == true){
-          state = 'gameOver';
-      }
-
-      if (carts.outOfScreen){
-        piggy.score += 10;
-      }
-
+  for (let c of carts) {
+    if (piggy.hits(c)) {
+    	carts = [];
+      console.log('game over');
+      checkGameOver = true;
+      break;
     }
+    c.move();
+    c.show();
+  }
 
+  if(checkGameOver == true){
+      state = 'gameOver';
+  }
+
+  if (carts.outOfScreen){
+    piggy.score += 10;
+  }
 }
 
 

@@ -3,10 +3,11 @@ class Cart {
     this.r = 40;
     this.x = width;
     this.y = height - this.r;
+    this.speed = 8; //speed of the cart
   }
 
   move() {
-    this.x -= 8; //speed of the cart
+    this.x -= this.speed;
   }
 
   show() {
@@ -14,8 +15,8 @@ class Cart {
   }
 
   outOfScreen(){
-    if (this.x < - width ){
+    if (this.x < 0 ){
       return true;
     }
-  }
+}
 }

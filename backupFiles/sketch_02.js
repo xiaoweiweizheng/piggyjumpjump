@@ -97,9 +97,10 @@ function levelOne() {
     c.show();
 
   }
+  
   if(check == true){
       state = 'gameOver';
-    }
+  }
 
   piggy.show();
   piggy.move();
