@@ -147,6 +147,8 @@ function levelOne() {
   fill(0);
   textSize(15);
   text('scores: ' + scores, width / 1.2, height / 10);
+  fill(100);
+  text('jump to bottles to get points', width / 3.5, height / 10);
 
 }
 

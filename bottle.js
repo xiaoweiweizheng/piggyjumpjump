@@ -2,7 +2,7 @@ class Bottle {
   constructor() {
     this.r = 50;
     this.x = width;
-    this.y = random(this.r*2);
+    this.y = random(this.r, this.r*2);
     this.speed = 5;
   }
 
