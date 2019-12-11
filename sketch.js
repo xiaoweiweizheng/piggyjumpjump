@@ -105,8 +105,6 @@ for (var i = bottles.length - 1; i >= 0; i--) {
   }
 }
 
-  let checkGameOver = false;
-
   for (let c of carts) {
     if (piggy.hits(c)) {
     	// carts = [];
