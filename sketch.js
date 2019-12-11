@@ -5,15 +5,14 @@ let h = 400;
 let state = 'title';
 let piggy;
 let carts = [];
-let jumpBeginnTime = performance.now();
-
-let score = 0;
-
-let pImg, cImg;
+let bottles = [];
+let scores = 0;
+let pImg, cImg, bImg;
 
 function preload() {
   pImg = loadImage('asset/piggy.png');
   cImg = loadImage('asset/cart.png');
+  bImg = loadImage('asset/bottle.png')
 }
 
 function setup() {
@@ -85,33 +84,49 @@ function levelOne() {
 
   background(255);
 
-  piggy.show();
-  piggy.move();
-
   if (random(1) < 0.015) { //number of the cart
     carts.push(new Cart());
   }
 
-    for (let i = 0; i <= carts.length; i++){
-      carts[i].move();
-      carts[i].show();
+  if (random(1) < 0.02) {
+    bottles.push(new Bottle());
+  }
 
-      if (piggy.hits(carts[i])) {
-        // carts = [];
-        console.log('game over');
-        checkGameOver = true;
-        break;
-      }
+for (var i = 0; i < bottles.length; i++) {
+  bottles[i].move();
+  bottles[i].show();
+}
 
-      if(checkGameOver == true){
-          state = 'gameOver';
-      }
+for (var i = bottles.length - 1; i >= 0; i--) {
+  if (dist(piggy.x, piggy.y, bottles[i].x, bottles[i].y) <= (piggy.r + bottles[i].r)/2){
+    scores++;
+    console.log(scores);
+    bottles.splice(i, 0);
+  }
+}
 
-      if (carts.outOfScreen){
-        piggy.score += 10;
-      }
+  let check = false;
 
+  for (let c of carts) {
+    if (piggy.hits(c)) {
+    	// carts = [];
+      console.log('game over');
+      check = true;
+      break;
     }
+    c.move();
+    c.show();
+  }
+
+  if(check == true){
+      state = 'gameOver';
+  }
+
+  piggy.show();
+  piggy.move();
+
+  textSize(15);
+  text('scores: ' + scores, width/1.2, height/10);
 
 }
 

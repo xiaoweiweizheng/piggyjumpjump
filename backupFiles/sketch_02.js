@@ -1,3 +1,4 @@
+// piggy jumps check collision with carts, NO points 
 'use strict';
 let cnv;
 let w = 800;
@@ -97,7 +98,7 @@ function levelOne() {
     c.show();
 
   }
-  
+
   if(check == true){
       state = 'gameOver';
   }

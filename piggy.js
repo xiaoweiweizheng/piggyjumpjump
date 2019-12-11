@@ -5,13 +5,13 @@ class Piggy {
     this.y = height - this.r;
     this.vy = 0;
     this.gravity = 1;
-    this.score = 0;
+    // this.scores = 0;
   }
 
   show() {
     image(pImg, this.x, this.y, this.r, this.r);
-    textSize(15);
-    text('score: ' + this.score, width/1.2, height/10);
+    // textSize(15);
+    // text('scores: ' + this.scores, width/1.2, height/10);
   }
 
   move() {
@@ -22,7 +22,7 @@ class Piggy {
 
   jump() {
     if (this.y == height - this.r) {
-      this.vy = -20;
+      this.vy = -22;
 
     }
   }
