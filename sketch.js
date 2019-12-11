@@ -105,15 +105,16 @@ for (var i = bottles.length - 1; i >= 0; i--) {
   }
 }
 
-  let check = false;
+  let checkGameOver = false;
 
   for (let c of carts) {
     if (piggy.hits(c)) {
     	// carts = [];
       console.log('game over');
-      check = true;
+      checkGameOver = true;
       break;
     }
+
     c.move();
     c.show();
   }
