@@ -13,9 +13,9 @@ let hX2;
 let houseSpeed = 5;
 
 function preload() {
-  pImg = loadImage('asset/piggy.png');
-  cImg = loadImage('asset/cart.png');
-  bImg = loadImage('asset/bottle.png')
+  pImg = loadImage('asset/piggy_piggy_04.png');
+  cImg = loadImage('asset/piggy_cart_1*32.png');
+  bImg = loadImage('asset/piggy_bottle_02.png');
   hImg = loadImage('asset/house.png');
 }
 
